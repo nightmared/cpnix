@@ -5,7 +5,7 @@ rustPlatform.buildRustPackage rec {
 
   src = builtins.fetchGit {
     url = "https://github.com/nightmared/le_dns_online.git";
-    rev = "c9c7c2475c3eaf0a9555ec2a797de347396eb676";
+    ref = "refs/tags/${version}";
   };
 
   nativeBuildInputs = with pkgs; [ perl pkgconfig ];
