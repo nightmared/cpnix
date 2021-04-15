@@ -1,14 +1,9 @@
 self: super:
 let
-  pkgs = import <nixpkgs> {
-    #crossSystem = (import <nixpkgs/lib>).systems.examples.musl64 // {
-    #  rustc.config = "x86_64-unknown-linux-musl";
-    #};
-    overlays = [ (import (builtins.fetchTarball https://github.com/mozilla/nixpkgs-mozilla/archive/master.tar.gz)) ];
-  };
+  pkgs = import <nixpkgs> {};
   rustPlatform = pkgs.makeRustPlatform {
-    cargo = pkgs.latest.rustChannels.stable.rust;
-    rustc = pkgs.latest.rustChannels.stable.rust;
+    cargo = pkgs.rust_1_51.packages.stable.cargo;
+    rustc = pkgs.rust_1_51.packages.stable.rustc;
   };
 in
 {
