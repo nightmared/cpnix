@@ -2,8 +2,8 @@ self: super:
 let
 pkgs = import <nixpkgs> {};
 rustPlatform = pkgs.makeRustPlatform {
-    cargo = pkgs.rust_1_52.packages.stable.cargo;
-    rustc = pkgs.rust_1_52.packages.stable.rustc;
+    cargo = pkgs.rust.packages.stable.cargo;
+    rustc = pkgs.rust.packages.stable.rustc;
 };
 in
 {
